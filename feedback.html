@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Feedback</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --warm-white: #faf8f3;
+            --gold: #b49a65;
+            --gold-dark: #8e7445;
+            --gold-light: #e8ddc5;
+            --text: #35332e;
+            --muted: #77746c;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 42px 16px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--warm-white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 38px 40px;
+            background: var(--white);
+            border: 1px solid var(--gold-light);
+            border-radius: 16px;
+            box-shadow: 0 14px 40px rgba(80, 65, 35, 0.08);
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--gold-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            color: #55472f;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(28px, 5vw, 36px);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .subtitle {
+            margin: 12px 0 28px;
+            color: var(--muted);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .divider {
+            width: 55px;
+            height: 3px;
+            margin: 20px auto 28px;
+            background: var(--gold);
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 8px;
+            color: #514936;
+            font-size: 14px;
+            font-weight: 650;
+        }
+
+        input, select, textarea {
+            display: block;
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #e1ddd3;
+            border-radius: 8px;
+            background: #fffefa;
+            color: var(--text);
+            font: inherit;
+            font-size: 15px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #a09b90;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(180, 154, 101, 0.15);
+        }
+
+        textarea {
+            min-height: 125px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 26px;
+            padding: 14px 20px;
+            border: 1px solid var(--gold-dark);
+            border-radius: 8px;
+            background: var(--gold-dark);
+            color: var(--white);
+            font: inherit;
+            font-size: 15px;
+            font-weight: 650;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #735c35;
+            transform: translateY(-1px);
+        }
+
+        button:focus-visible, a:focus-visible {
+            outline: 3px solid var(--gold-light);
+            outline-offset: 3px;
+        }
+
+        #status {
+            margin-top: 18px;
+            color: #66552f;
+            text-align: center;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .back {
+            display: block;
+            margin-top: 24px;
+            color: var(--gold-dark);
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid #eee9df;
+            color: var(--muted);
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .container {
+                padding: 28px 21px;
+            }
+        }
+        
+/* Dark mode toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 1000;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--gold-dark);
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark theme */
+body.dark-mode {
+    background: #171a21;
+    color: #edf0f5;
+}
+
+body.dark-mode .container {
+    background: #222731;
+    color: #edf0f5;
+    border-color: #353b47;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode h1,
+body.dark-mode label {
+    color: #e8d5a8;
+}
+
+body.dark-mode .subtitle,
+body.dark-mode .footer {
+    color: #b4bac5;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background: #292f3a;
+    color: #f4f5f7;
+    border-color: #454c59;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #a9b0bd;
+}
+
+body.dark-mode .theme-toggle {
+    background: #292f3a;
+    color: #f3d58b;
+    border-color: #454c59;
+}
+
+body.dark-mode button:not(.theme-toggle) {
+    background: #b49a65;
+    color: #171a21;
+    border-color: #b49a65;
+}
+
+body.dark-mode a {
+    color: #e8d5a8;
+}
+
+    </style>
+</head>
+
+<body>
+    <button id="themeToggle" class="theme-toggle"
+    type="button" aria-label="Switch to dark mode"
+    title="Switch to dark mode">
+    ☾
+</button>
+    <main class="container">
+        <p class="eyebrow">Your thoughts matter</p>
+
+        <h1>Share Your Feedback</h1>
+
+        <div class="divider"></div>
+
+        <p class="subtitle">
+            Your feedback helps us make the Portfolio Generator better.
+            Tell us about your experience.
+        </p>
+
+        <form id="feedbackForm">
+            <label for="name">Your Name</label>
+            <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Enter your name"
+                required
+                maxlength="100"
+            >
+
+            <label for="rating">Rate Your Experience</label>
+            <select id="rating" name="rating" required>
+                <option value="">Choose a rating</option>
+                <option value="5">5 - Excellent</option>
+                <option value="4">4 - Very Good</option>
+                <option value="3">3 - Good</option>
+                <option value="2">2 - Needs Improvement</option>
+                <option value="1">1 - Poor</option>
+            </select>
+
+            <label for="comments">Comments</label>
+            <textarea
+                id="comments"
+                name="comments"
+                placeholder="Tell us what you think..."
+                required
+                maxlength="1000"
+            ></textarea>
+
+            <button type="submit">Submit Feedback&nbsp; →</button>
+        </form>
+
+        <p id="status" role="status" aria-live="polite"></p>
+
+        <a class="back" href="/create.html">
+            ← Back to Portfolio Generator
+        </a>
+
+        <div class="footer">PERSONAL PORTFOLIO GENERATOR</div>
+    </main>
+
+    <script>
+        
+const themeToggle = document.getElementById("themeToggle");
+
+function applyTheme() {
+    const isDark = localStorage.getItem("portfolioTheme") === "dark";
+
+    document.body.classList.toggle("dark-mode", isDark);
+    themeToggle.textContent = isDark ? "☀" : "☾";
+
+    themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+
+    themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+}
+
+applyTheme();
+
+themeToggle.addEventListener("click", function () {
+    const isDark = document.body.classList.toggle("dark-mode");
+
+    localStorage.setItem("portfolioTheme", isDark ? "dark" : "light");
+    applyTheme();
+});
+
+        const feedbackForm = document.getElementById("feedbackForm");
+        const statusMessage = document.getElementById("status");
+
+        feedbackForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const rating = Number(document.getElementById("rating").value);
+            const comments = document.getElementById("comments").value.trim();
+
+            statusMessage.textContent = "Submitting feedback...";
+
+            try {
+                const response = await fetch("/api/feedback", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ name, rating, comments })
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        result.message || "Could not submit feedback."
+                    );
+                }
+
+                statusMessage.textContent = result.message;
+                feedbackForm.reset();
+
+            } catch (error) {
+                statusMessage.textContent =
+                    "Could not submit feedback. Please try again.";
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>
