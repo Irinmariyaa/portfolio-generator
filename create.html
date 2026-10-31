@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ivory: #f7f5ef;
+            --navy: #172b4d;
+            --navy-light: #263f65;
+            --muted: #667085;
+            --border: #e2dfd5;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 48px 18px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--ivory);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: auto;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 16px 45px rgba(23, 43, 77, 0.08);
+        }
+
+        .header {
+            padding: 38px 42px 32px;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: #d9cba9;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(29px, 5vw, 40px);
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            max-width: 440px;
+            margin: 12px auto 0;
+            color: #dce3ee;
+            font-size: 15px;
+        }
+
+        .form-content {
+            padding: 32px 42px 40px;
+        }
+
+        .section-title {
+            margin: 0 0 6px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .section-description {
+            margin: 0 0 24px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 650;
+        }
+
+        input, textarea {
+            display: block;
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d9dce3;
+            border-radius: 9px;
+            background: #fffefa;
+            color: var(--navy);
+            font: inherit;
+            font-size: 15px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #98a0ae;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--navy-light);
+            box-shadow: 0 0 0 3px rgba(38, 63, 101, 0.10);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .hint {
+            display: block;
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 15px 20px;
+            border: 1px solid var(--navy);
+            border-radius: 9px;
+            background: var(--navy);
+            color: var(--white);
+            font: inherit;
+            font-size: 15px;
+            font-weight: 650;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: var(--navy-light);
+            transform: translateY(-1px);
+        }
+
+        button:focus-visible {
+            outline: 3px solid #c7b78e;
+            outline-offset: 3px;
+        }
+
+        #status {
+            text-align: center;
+            color: var(--navy);
+        }
+
+        .footer {
+            padding: 17px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            font-size: 12px;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .form-content {
+                padding: 27px 20px 30px;
+            }
+        }
+        .theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 1000;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 23px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 3px 12px rgba(23, 43, 77, 0.10);
+}
+
+body.dark-mode {
+    --ivory: #171a21;
+    --navy: #edf0f5;
+    --navy-light: #b7c6df;
+    --muted: #b4bac5;
+    --border: #353b47;
+    --white: #222731;
+    background: var(--ivory);
+    color: var(--navy);
+}
+
+body.dark-mode .header {
+    background: #10141c;
+}
+
+body.dark-mode .subtitle {
+    color: #c4cad5;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #292f3a;
+    color: #f4f5f7;
+    border-color: #454c59;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #a9b0bd;
+}
+
+body.dark-mode .theme-toggle {
+    background: #292f3a;
+    color: #f3d58b;
+    border-color: #454c59;
+}
+
+body.dark-mode button:not(.theme-toggle) {
+    background: #d7c18e;
+    color: #172033;
+    border-color: #d7c18e;
+}
+
+body.dark-mode button:not(.theme-toggle):hover {
+    background: #ead9ad;
+}
+    </style>
+</head>
+
+<body>
+    <button id="themeToggle" class="theme-toggle"
+        type="button" aria-label="Switch to dark mode"
+        title="Switch to dark mode">
+        ☾
+    </button>
+    <main class="container">
+        <header class="header">
+            <p class="eyebrow">Your story, professionally presented</p>
+            <h1>Create Your Portfolio</h1>
+            <p class="subtitle">
+                Bring your experience, skills and achievements together
+                in one elegant personal portfolio.
+            </p>
+        </header>
+
+        <div class="form-content">
+            <h2 class="section-title">Personal Details</h2>
+            <p class="section-description">
+                Complete the fields below to generate your portfolio.
+            </p>
+
+            <form id="portfolioForm">
+                <div class="field">
+                    <label for="name">Full Name</label>
+                    <input id="name" name="name"
+                        placeholder="Enter your full name" required>
+                </div>
+
+                <div class="field">
+                    <label for="intro">About You</label>
+                    <textarea id="intro" name="intro"
+                        placeholder="Introduce yourself and your interests"
+                        required></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="education">Education</label>
+                    <textarea id="education" name="education"
+                        placeholder="Your degree, institution and qualifications"
+                        required></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="skills">Skills</label>
+                    <input id="skills" name="skills"
+                        placeholder="HTML, CSS, JavaScript" required>
+                    <span class="hint">Separate each skill with a comma.</span>
+                </div>
+
+                <div class="field">
+                    <label for="projects">Projects</label>
+                    <textarea id="projects" name="projects"
+                        placeholder="Describe your projects and what you built"
+                        required></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="achievements">Achievements</label>
+                    <textarea id="achievements" name="achievements"
+                        placeholder="Awards, certifications or accomplishments"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="email">Contact Email</label>
+                    <input id="email" name="email" type="email"
+                        placeholder="you@example.com" required>
+                </div>
+
+                <button type="submit">Generate My Portfolio&nbsp; →</button>
+            </form>
+
+            <p id="status" role="status" aria-live="polite"></p>
+        </div>
+
+        <footer class="footer">
+            PERSONAL PORTFOLIO GENERATOR
+        </footer>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+
+function applyTheme() {
+    const isDark = localStorage.getItem("portfolioTheme") === "dark";
+
+    document.body.classList.toggle("dark-mode", isDark);
+    themeToggle.textContent = isDark ? "☀" : "☾";
+    themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+    themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+}
+
+applyTheme();
+
+themeToggle.addEventListener("click", function() {
+    const isDark = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("portfolioTheme", isDark ? "dark" : "light");
+    applyTheme();
+});
+
+const savedPortfolio = sessionStorage.getItem("generatedPortfolio");
+
+if (savedPortfolio) {
+    const portfolio = JSON.parse(savedPortfolio);
+
+    document.getElementById("name").value = portfolio.name || "";
+    document.getElementById("intro").value = portfolio.intro || "";
+    document.getElementById("education").value = portfolio.education || "";
+    document.getElementById("skills").value = portfolio.skills || "";
+    document.getElementById("projects").value = portfolio.projects || "";
+    document.getElementById("achievements").value = portfolio.achievements || "";
+    document.getElementById("email").value = portfolio.email || "";
+}
+
+        document.getElementById("portfolioForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const portfolio = {
+                    name: document.getElementById("name").value.trim(),
+                    intro: document.getElementById("intro").value.trim(),
+                    education: document.getElementById("education").value.trim(),
+                    skills: document.getElementById("skills").value.trim(),
+                    projects: document.getElementById("projects").value.trim(),
+                    achievements: document.getElementById("achievements").value.trim(),
+                    email: document.getElementById("email").value.trim()
+                };
+
+                sessionStorage.setItem(
+                    "generatedPortfolio",
+                    JSON.stringify(portfolio)
+                );
+
+                window.location.href = "/portfolio.html";
+            });
+    </script>
+</body>
+</html>

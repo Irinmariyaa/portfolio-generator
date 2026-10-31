@@ -1,0 +1,481 @@
+
+/* ==================================
+   1. COLOUR THEMES
+================================== */
+
+:root {
+    color-scheme: light;
+
+    --bg: #FFFAFD;
+    --text: #493B52;
+    --muted: #786A80;
+    --accent: #D95791;
+    --heading: #A65BB5;
+    --nav: #FFF0F6;
+    --hero1: #FFF0F6;
+    --hero2: #F0EAFF;
+    --section: #FFFAFD;
+    --section-alt: #F4EEFF;
+    --card: #FFFFFF;
+    --border: #EAD9EB;
+    --input: #FFFFFF;
+    --shadow: rgba(116, 78, 126, 0.10);
+}
+
+body.dark {
+    color-scheme: dark;
+
+    --bg: #211C29;
+    --text: #F5EDF8;
+    --muted: #C7B7D0;
+    --accent: #FFADD4;
+    --heading: #D8B0F2;
+    --nav: #2C2435;
+    --hero1: #332638;
+    --hero2: #302B43;
+    --section: #211C29;
+    --section-alt: #2A2436;
+    --card: #342B40;
+    --border: #51415D;
+    --input: #302739;
+    --shadow: rgba(0, 0, 0, 0.18);
+}
+
+/* ==================================
+   2. GENERAL STYLING
+================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ==================================
+   3. NAVIGATION
+================================== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 18px 8%;
+    background: var(--nav);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px var(--shadow);
+}
+
+.logo {
+    color: var(--accent);
+    font-size: 27px;
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* ==================================
+   4. THEME TOGGLE BUTTON
+================================== */
+
+#themeToggle {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 9px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#themeToggle:hover {
+    transform: translateY(-2px);
+}
+
+/* ==================================
+   5. HOME SECTION
+================================== */
+
+#home {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    padding: 80px 10%;
+    background: linear-gradient(
+        135deg,
+        var(--hero1),
+        var(--hero2)
+    );
+}
+
+.welcome {
+    color: var(--accent);
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#home h1 {
+    color: var(--text);
+    font-size: 50px;
+    line-height: 1.2;
+}
+
+#home h1 span {
+    color: var(--accent);
+}
+
+#home h3 {
+    color: var(--heading);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#home p:not(.welcome) {
+    max-width: 600px;
+}
+
+/* ==================================
+   6. BUTTONS
+================================== */
+
+.btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #38253A;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark .btn {
+    color: #281C30;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px var(--shadow);
+}
+
+/* ==================================
+   7. SECTIONS
+================================== */
+
+section {
+    padding: 75px 10%;
+    text-align: center;
+    scroll-margin-top: 90px;
+}
+
+section h2 {
+    color: var(--heading);
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+#about,
+#projects {
+    background: var(--section);
+}
+
+#skills,
+#contact {
+    background: var(--section-alt);
+}
+
+/* ==================================
+   8. ABOUT ME
+================================== */
+
+#about p {
+    max-width: 750px;
+    margin: 0 auto;
+    color: var(--muted);
+}
+
+/* ==================================
+   9. SKILLS AND PROJECTS
+================================== */
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.card {
+    width: 220px;
+    padding: 25px;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 5px 18px var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px var(--shadow);
+}
+
+#skills .card:nth-child(5n + 1) {
+    border-top: 4px solid #E9A6C8;
+}
+
+#skills .card:nth-child(5n + 2) {
+    border-top: 4px solid #BDB0F0;
+}
+
+#skills .card:nth-child(5n + 3) {
+    border-top: 4px solid #A6D9F3;
+}
+
+#skills .card:nth-child(5n + 4) {
+    border-top: 4px solid #A8DFC5;
+}
+
+#skills .card:nth-child(5n + 5) {
+    border-top: 4px solid #F0D28F;
+}
+
+.card h3 {
+    color: var(--heading);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ==================================
+   10. CONTACT FORM
+================================== */
+
+form {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--input);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+form .btn {
+    align-self: center;
+}
+
+#formStatus {
+    margin-top: 18px;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* ==================================
+   11. FOOTER
+================================== */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--nav);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ==================================
+   12. MOBILE RESPONSIVENESS
+================================== */
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        padding: 18px 5%;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    #home {
+        min-height: 65vh;
+        padding: 60px 6%;
+    }
+
+    #home h1 {
+        font-size: 38px;
+    }
+
+    #home h3 {
+        font-size: 18px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+
+    .cards {
+        gap: 16px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+/* Welcome intro screen */
+#introScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #fff8f5, #f8e8ee, #f6eee5);
+    color: #42343a;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.intro-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+}
+
+#introScreen h1 {
+    font-size: clamp(36px, 7vw, 68px);
+    font-weight: 500;
+    margin: 0 0 20px;
+}
+
+#introScreen h1 span {
+    color: #c47b96;
+    font-style: italic;
+}
+
+.intro-description {
+    max-width: 420px;
+    line-height: 1.8;
+    color: #78656e;
+}
+
+#enterPortfolio {
+    margin-top: 28px;
+    padding: 14px 28px;
+    border: 1px solid #c47b96;
+    border-radius: 30px;
+    background: #c47b96;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#enterPortfolio:hover {
+    transform: translateY(-3px);
+    background: #ad6480;
+}
+
+.intro-footer {
+    position: absolute;
+    bottom: 24px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #927d86;
+}
+
+#introScreen.intro-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}

@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="introScreen">
+    <p class="intro-label">A PERSONAL PORTFOLIO</p>
+
+    <h1>Hello, I'm <span>Irin.</span></h1>
+
+    <p class="intro-description">
+        A computer science student, learning one idea at a time.
+    </p>
+
+    <button id="enterPortfolio" type="button">
+        Get to know me ↗
+    </button>
+
+    <p class="intro-footer">MY JOURNEY IN TECH</p>
+</div>
+
+    <header>
+        <h2 class="logo">MyPortfolio.</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        
+<button id="themeToggle" type="button"
+        aria-label="Switch to dark mode">
+    🌙 Dark Mode
+</button>
+
+    </header>
+
+    <section id="home">
+        <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+        <h1>Hello, I'm <span>Irin</span></h1>
+        <h3>First Year Computer Science Student</h3>
+        <p>I am learning web development and programming.</p>
+        <a href="#about" class="btn">Explore My Portfolio</a>
+        <a href="/create.html" class="btn">Create Your Portfolio</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a first-year Computer Science student
+            interested in programming, technology and web development.
+            I enjoy learning new skills and building projects.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="cards">
+            <div class="card">HTML</div>
+            <div class="card">CSS</div>
+            <div class="card">JavaScript</div>
+            <div class="card">C Programming</div>
+            <div class="card">Python</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Portfolio Website</h3>
+                <p>A personal website created using HTML, CSS and JavaScript.</p>
+            </div>
+            <div class="card">
+                <h3>More Projects</h3>
+                <p>More projects will be added as I continue learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        <p id="formStatus"></p>
+    </section>
+
+    <footer>
+        <p>© 2026 My Portfolio | Created by Irin</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

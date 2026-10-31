@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Generated Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ivory: #f7f5ef;
+            --navy: #172b4d;
+            --navy-light: #263f65;
+            --muted: #667085;
+            --border: #e2dfd5;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--ivory);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            padding: 65px 20px 58px;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        header::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 3px;
+            margin: 25px auto 0;
+            background: #d9cba9;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #d9cba9;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            margin: 0 0 14px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 500;
+            overflow-wrap: anywhere;
+        }
+
+        header p {
+            max-width: 650px;
+            margin: auto;
+            color: #dce3ee;
+            white-space: pre-line;
+            overflow-wrap: anywhere;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 0 18px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 27px 30px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--white);
+            box-shadow: 0 8px 28px rgba(23, 43, 77, 0.04);
+        }
+
+        h2 {
+            margin: 0 0 15px;
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        section p {
+            margin: 0;
+            color: #465268;
+            white-space: pre-line;
+            overflow-wrap: anywhere;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 7px 14px;
+            border: 1px solid #dce2eb;
+            border-radius: 6px;
+            background: #eef1f6;
+            color: var(--navy);
+            font-size: 14px;
+        }
+
+        a {
+            color: var(--navy-light);
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            color: #8a6c37;
+        }
+
+        .actions {
+            max-width: 850px;
+            margin: 30px auto 45px;
+            padding: 0 18px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 13px 22px;
+            border: 1px solid var(--navy);
+            border-radius: 8px;
+            background: var(--navy);
+            color: white;
+            cursor: pointer;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: var(--navy-light);
+            transform: translateY(-1px);
+        }
+
+        button.secondary {
+            background: transparent;
+            color: var(--navy);
+        }
+
+        button.secondary:hover {
+            background: #eef1f6;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #c7b78e;
+            outline-offset: 3px;
+        }
+
+        footer {
+            padding: 22px 15px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 560px) {
+            header {
+                padding: 45px 18px;
+            }
+
+            main {
+                margin: 22px auto;
+                padding: 0 12px;
+            }
+
+            section {
+                padding: 22px 20px;
+            }
+
+            .actions {
+                padding: 0 12px;
+            }
+
+            button {
+                flex: 1 1 100%;
+            }
+        }
+        /* Dark mode toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 1000;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--navy);
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 3px 12px rgba(23, 43, 77, 0.10);
+}
+
+/* Dark theme */
+body.dark-mode {
+    --ivory: #171a21;
+    --navy: #edf0f5;
+    --navy-light: #b7c6df;
+    --muted: #b4bac5;
+    --border: #353b47;
+    --white: #222731;
+
+    background: var(--ivory);
+    color: var(--navy);
+}
+
+body.dark-mode header {
+    background: #10141c;
+}
+
+body.dark-mode .section p,
+body.dark-mode footer {
+    color: #c4cad5;
+}
+
+body.dark-mode .skill {
+    background: #303746;
+    color: #edf0f5;
+    border-color: #454c59;
+}
+
+body.dark-mode .theme-toggle {
+    background: #292f3a;
+    color: #f3d58b;
+    border-color: #454c59;
+}
+
+body.dark-mode button:not(.theme-toggle) {
+    background: #d7c18e;
+    color: #172033;
+    border-color: #d7c18e;
+}
+
+body.dark-mode button.secondary {
+    background: #292f3a;
+    color: #edf0f5;
+    border-color: #454c59;
+}
+    </style>
+</head>
+
+<body>
+    <button id="themeToggle" class="theme-toggle"
+    type="button" aria-label="Switch to dark mode"
+    title="Switch to dark mode">
+    ☾
+</button>
+    <header>
+        <p class="eyebrow">Personal Portfolio</p>
+        <h1 id="name">My Portfolio</h1>
+        <p id="intro"></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>About My Education</h2>
+            <p id="education"></p>
+        </section>
+
+        <section>
+            <h2>Skills & Expertise</h2>
+            <div class="skills" id="skills"></div>
+        </section>
+
+        <section>
+            <h2>Selected Projects</h2>
+            <p id="projects"></p>
+        </section>
+
+        <section>
+            <h2>Achievements</h2>
+            <p id="achievements"></p>
+        </section>
+
+        <section>
+            <h2>Get in Touch</h2>
+            <p id="email"></p>
+        </section>
+    </main>
+
+    <div class="actions">
+        <button class="secondary"
+            onclick="window.location.href='/create.html'">
+            ← Edit Details
+        </button>
+
+        <button onclick="window.location.href='/feedback.html'">
+            Give Feedback →
+        </button>
+    </div>
+
+    <footer>PERSONAL PORTFOLIO GENERATOR</footer>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+
+        applyTheme();
+function applyTheme() {
+    const isDark = localStorage.getItem("portfolioTheme") === "dark";
+
+    document.body.classList.toggle("dark-mode", isDark);
+    themeToggle.textContent = isDark ? "☀" : "☾";
+
+    themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+
+    themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+}
+
+applyTheme();
+
+themeToggle.addEventListener("click", function () {
+    const isDark = document.body.classList.toggle("dark-mode");
+
+    localStorage.setItem("portfolioTheme", isDark ? "dark" : "light");
+    applyTheme();
+});
+        const saved = sessionStorage.getItem("generatedPortfolio");
+
+        if (!saved) {
+            document.querySelector("main").innerHTML =
+                "<section><h2>No portfolio found</h2>" +
+                "<p>Please enter your details first.</p>" +
+                '<a href="/create.html">Create a portfolio</a></section>';
+
+            document.querySelector(".actions").style.display = "none";
+        } else {
+            try {
+                const portfolio = JSON.parse(saved);
+
+                document.getElementById("name").textContent =
+                    portfolio.name || "My Portfolio";
+
+                document.getElementById("intro").textContent =
+                    portfolio.intro || "";
+
+                document.getElementById("education").textContent =
+                    portfolio.education || "No education details added yet.";
+
+                document.getElementById("projects").textContent =
+                    portfolio.projects || "No projects added yet.";
+
+                document.getElementById("achievements").textContent =
+                    portfolio.achievements || "No achievements added yet.";
+
+                const skillsContainer =
+                    document.getElementById("skills");
+
+                (portfolio.skills || "").split(",").forEach(function(skill) {
+                    if (skill.trim()) {
+                        const item = document.createElement("span");
+                        item.className = "skill";
+                        item.textContent = skill.trim();
+                        skillsContainer.appendChild(item);
+                    }
+                });
+
+                if (!skillsContainer.children.length) {
+                    skillsContainer.textContent = "No skills added yet.";
+                }
+
+                const email = document.getElementById("email");
+
+                if (portfolio.email) {
+                    const link = document.createElement("a");
+                    link.textContent = portfolio.email;
+                    link.href = "mailto:" + portfolio.email;
+                    email.appendChild(link);
+                } else {
+                    email.textContent = "No contact email provided.";
+                }
+            } catch (error) {
+                document.querySelector("main").textContent =
+                    "Your portfolio data could not be loaded. Please create it again.";
+
+                document.querySelector(".actions").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
