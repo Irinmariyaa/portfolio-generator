@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Feedback</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <a href="index.html">← Home</a>
+        <h1>We Value Your Feedback</h1>
+        <p>Your thoughts help us make this experience better.</p>
+    </header>
+
+    <main class="feedback-container">
+
+        <form id="feedbackForm" class="feedback-card">
+
+            <h2>Share Your Experience</h2>
+
+            <label for="feedbackName">Your Name (Optional)</label>
+            <input
+                type="text"
+                id="feedbackName"
+                name="name"
+                placeholder="Enter your name"
+            >
+
+            <label>How would you rate this portfolio?</label>
+
+            <div class="rating-options">
+                <label>
+                    <input type="radio" name="rating" value="1" required>
+                    1 ★
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="2">
+                    2 ★
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="3">
+                    3 ★
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="4">
+                    4 ★
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="5">
+                    5 ★
+                </label>
+            </div>
+
+            <label for="feedbackMessage">Your Feedback</label>
+            <textarea
+                id="feedbackMessage"
+                name="message"
+                rows="6"
+                placeholder="Write your thoughts here..."
+                required
+            ></textarea>
+
+            <button type="submit" class="main-button">
+                Submit Feedback
+            </button>
+
+            <p id="feedbackStatus" role="status"></p>
+
+        </form>
+
+    </main>
+
+    <script src="js/feedback.js"></script>
+
+</body>
+</html>

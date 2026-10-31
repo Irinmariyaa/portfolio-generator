@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="portfolio-nav">
+        <a href="index.html">Portfolio</a>
+        <div>
+            <button id="themeToggle" class="secondary-button">🌙</button>
+            <a href="feedback.html" class="secondary-button">Feedback</a>
+        </div>
+    </header>
+
+    <main id="portfolioDisplay" class="portfolio-container">
+
+        <p class="loading-message">Preparing your portfolio...</p>
+
+        <section class="portfolio-intro">
+            <div class="profile-image-container">
+                <img id="displayImage" src="" alt="Profile photo">
+            </div>
+
+            <p class="portfolio-eyebrow">WELCOME TO MY PORTFOLIO</p>
+            <h1 id="displayName"></h1>
+            <h2 id="displayTitle"></h2>
+            <p id="displayAbout"></p>
+        </section>
+
+        <section class="portfolio-section" id="contactSection">
+            <h2>Contact</h2>
+            <p id="displayEmail"></p>
+            <p id="displayPhone"></p>
+            <p id="displayLocation"></p>
+        </section>
+
+        <section class="portfolio-section" id="educationSection">
+            <h2>Education</h2>
+            <div id="displayEducation"></div>
+        </section>
+
+        <section class="portfolio-section" id="skillsSection">
+            <h2>Skills</h2>
+            <div id="displaySkills" class="tag-container"></div>
+        </section>
+
+        <section class="portfolio-section" id="achievementsSection">
+            <h2>Achievements</h2>
+            <ul id="displayAchievements"></ul>
+        </section>
+
+        <section class="portfolio-section" id="hobbiesSection">
+            <h2>Hobbies & Interests</h2>
+            <div id="displayHobbies" class="tag-container"></div>
+        </section>
+
+        <section class="portfolio-section" id="projectsSection">
+            <h2>My Projects</h2>
+            <div id="displayProjects"></div>
+        </section>
+
+    </main>
+    <script src="js/portfolio.js"></script>
+
+</body>
+</html>

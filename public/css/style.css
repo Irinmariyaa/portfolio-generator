@@ -1,0 +1,695 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+/* =====================================
+   PORTFOLIO — ANTIQUE ART GALLERY
+===================================== */
+
+:root {
+    --ivory: #F4F2EA;
+    --paper: #FBFAF6;
+    --mist: #D7E1DF;
+    --eucalyptus: #A4B9B5;
+    --bronze: #A77C5B;
+    --teal: #365457;
+    --deep-teal: #293F42;
+    --text: #344345;
+    --muted: #788584;
+    --white: #FFFFFF;
+    --border: #D8DCD5;
+    --shadow: 0 12px 35px rgba(41, 63, 66, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--ivory);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--teal);
+    line-height: 1.25;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =====================================
+   SHARED DECORATIVE DETAILS
+===================================== */
+
+.eyebrow {
+    color: var(--bronze);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.ornament,
+.section-divider {
+    color: var(--bronze);
+    text-align: center;
+    letter-spacing: 0.5em;
+    margin: 18px auto;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    display: inline-block;
+    width: 42px;
+    height: 1px;
+    background: var(--bronze);
+    vertical-align: middle;
+    margin: 0 12px;
+    opacity: 0.65;
+}
+
+/* =====================================
+   HOMEPAGE
+===================================== */
+
+.hero {
+    min-height: 100vh;
+    padding: 28px 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(164,185,181,0.22), transparent 28%),
+        var(--ivory);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid var(--bronze);
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "✧";
+    position: absolute;
+    right: 10%;
+    bottom: 16%;
+    color: var(--bronze);
+    font-size: 100px;
+    opacity: 0.13;
+    pointer-events: none;
+}
+
+.navbar,
+.portfolio-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    letter-spacing: 0.06em;
+}
+
+.navbar a,
+.portfolio-nav a {
+    color: var(--teal);
+    font-size: 0.9rem;
+    transition: color 0.25s;
+}
+
+.navbar a:hover,
+.portfolio-nav a:hover {
+    color: var(--bronze);
+}
+
+.hero-content {
+    width: min(760px, 90%);
+    margin: 80px auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+    margin: 22px 0;
+}
+
+.hero-description {
+    max-width: 550px;
+    margin: 0 auto 32px;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+.main-button,
+button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--teal);
+    color: var(--white);
+    padding: 13px 30px;
+    border: 1px solid var(--teal);
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+}
+
+.main-button:hover,
+button[type="submit"]:hover {
+    background: var(--deep-teal);
+    border-color: var(--bronze);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.hero footer,
+footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================
+   PAGE HEADERS
+===================================== */
+
+.page-header {
+    text-align: center;
+    padding: 55px 20px 30px;
+}
+
+.page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.page-header p {
+    color: var(--muted);
+}
+
+/* =====================================
+   CREATE PORTFOLIO FORM
+===================================== */
+
+.form-container {
+    width: min(850px, 92%);
+    margin: 20px auto 70px;
+}
+
+#portfolioForm {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-section {
+    background: var(--paper);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--eucalyptus);
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.form-section h2 {
+    font-size: 1.55rem;
+    margin-bottom: 20px;
+}
+
+.form-section p {
+    color: var(--muted);
+}
+
+.form-section label {
+    display: block;
+    color: var(--teal);
+    font-size: 0.86rem;
+    font-weight: 600;
+    margin: 14px 0 6px;
+}
+
+.form-section input,
+.form-section textarea,
+.form-section select,
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-section input:focus,
+.form-section textarea:focus,
+.form-section select:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--eucalyptus);
+    box-shadow: 0 0 0 3px rgba(164,185,181,0.17);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.repeatable-item {
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    padding: 18px;
+    margin: 14px 0;
+}
+
+.secondary-button {
+    background: transparent;
+    color: var(--teal);
+    border: 1px solid var(--eucalyptus);
+    padding: 9px 16px;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.secondary-button:hover {
+    background: var(--mist);
+    border-color: var(--teal);
+}
+
+.remove-button {
+    background: transparent;
+    color: #98645A;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#photoPreview {
+    margin-top: 14px;
+}
+
+#photoPreview img {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border: 5px solid var(--white);
+    outline: 1px solid var(--bronze);
+    border-radius: 50%;
+}
+
+#progressFill {
+    background: var(--bronze);
+    transition: width 0.3s ease;
+}
+
+/* =====================================
+   GENERATED PORTFOLIO
+===================================== */
+
+.portfolio-nav {
+    padding: 20px 6%;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+}
+
+.portfolio-container {
+    width: min(1050px, 92%);
+    margin: 45px auto;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: clamp(22px, 5vw, 65px);
+    position: relative;
+}
+
+.portfolio-container::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 1px solid rgba(167,124,91,0.35);
+    pointer-events: none;
+}
+
+.portfolio-intro {
+    text-align: center;
+    padding: 30px 10px 45px;
+    position: relative;
+}
+
+.portfolio-intro h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 500;
+    margin: 18px 0 8px;
+}
+
+.portfolio-intro p {
+    color: var(--muted);
+}
+
+.portfolio-intro img,
+#profileImage {
+    width: 155px;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 6px;
+    border: 1px solid var(--bronze);
+    outline: 1px solid var(--eucalyptus);
+    outline-offset: 5px;
+    margin-bottom: 20px;
+}
+
+.portfolio-section {
+    padding: 27px 0;
+    border-top: 1px solid var(--border);
+}
+
+.portfolio-section h2 {
+    font-size: 1.65rem;
+    margin-bottom: 16px;
+}
+
+.portfolio-section p {
+    color: var(--muted);
+}
+
+.portfolio-item {
+    padding: 15px 18px;
+    background: var(--ivory);
+    border-left: 2px solid var(--eucalyptus);
+    margin: 12px 0;
+}
+
+.portfolio-item h3 {
+    font-size: 1.15rem;
+}
+
+.portfolio-item p {
+    margin-top: 5px;
+}
+
+.tag,
+.skill {
+    display: inline-block;
+    padding: 7px 14px;
+    margin: 5px;
+    background: var(--mist);
+    color: var(--teal);
+    border: 1px solid rgba(54,84,87,0.12);
+    font-size: 0.82rem;
+}
+
+.theme-toggle {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--teal);
+    padding: 9px 13px;
+    cursor: pointer;
+}
+
+/* =====================================
+   FEEDBACK PAGE
+===================================== */
+
+.feedback-container {
+    width: min(650px, 92%);
+    margin: 25px auto 70px;
+}
+
+.feedback-card {
+    background: var(--paper);
+    padding: clamp(24px, 5vw, 45px);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--bronze);
+    box-shadow: var(--shadow);
+}
+
+.feedback-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+#feedbackForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#feedbackForm label {
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+
+.rating-options,
+#starRating {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+.rating-options label {
+    cursor: pointer;
+}
+
+#feedbackStatus {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--teal);
+}
+
+/* =====================================
+   BUTTONS AND LINKS
+===================================== */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 4px;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =====================================
+   DARK MODE
+===================================== */
+
+body.dark-mode {
+    --ivory: #263638;
+    --paper: #304447;
+    --mist: #3C5556;
+    --eucalyptus: #829F99;
+    --bronze: #C09A77;
+    --teal: #E0E9E4;
+    --deep-teal: #D1DEDA;
+    --text: #E5EBE7;
+    --muted: #B4C1BC;
+    --white: #354B4D;
+    --border: #526768;
+    --shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .main-button,
+body.dark-mode button[type="submit"] {
+    background: #A4B9B5;
+    color: #263638;
+    border-color: #A4B9B5;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #263638;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+body.dark-mode .repeatable-item,
+body.dark-mode .portfolio-item {
+    background: #293E40;
+}
+
+body.dark-mode .portfolio-nav {
+    background: var(--paper);
+}
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+
+@keyframes gentleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.form-section,
+.portfolio-section,
+.feedback-card {
+    animation: gentleReveal 0.7s ease both;
+}
+
+.main-button,
+.secondary-button,
+.portfolio-item,
+.tag,
+.skill {
+    transition: all 0.25s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-2px);
+    border-left-color: var(--bronze);
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 650px) {
+    .hero {
+        padding: 22px 5%;
+    }
+
+    .hero::before {
+        inset: 10px;
+    }
+
+    .hero-content {
+        margin: 55px auto;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .navbar h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-section {
+        padding: 21px;
+    }
+
+    .portfolio-container {
+        margin: 20px auto;
+        padding: 24px;
+    }
+
+    .portfolio-nav {
+        flex-wrap: wrap;
+        padding: 16px 5%;
+    }
+
+    .portfolio-intro img,
+    #profileImage {
+        width: 125px;
+        height: 125px;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+        width: 22px;
+    }
+}
+
+/* =====================================
+   PDF / PRINT
+===================================== */
+
+@media print {
+    body {
+        background: white !important;
+        color: #333 !important;
+    }
+
+    .portfolio-nav,
+    .theme-toggle,
+    .no-print,
+    button {
+        display: none !important;
+    }
+
+    .portfolio-container {
+        width: 100%;
+        margin: 0;
+        padding: 25px;
+        border: none;
+        box-shadow: none;
+        background: white !important;
+    }
+
+    .portfolio-container::before {
+        display: none;
+    }
+
+    .portfolio-section,
+    .portfolio-item {
+        break-inside: avoid;
+    }
+
+    h1, h2, h3 {
+        color: #365457 !important;
+    }
+}

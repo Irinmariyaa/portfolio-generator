@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <a href="index.html">← Home</a>
+        <h1>Create Your Portfolio</h1>
+        <p>Let's turn your journey into something beautiful.</p>
+    </header>
+
+    <main class="form-container">
+
+        <form id="portfolioForm">
+
+            <section class="form-section">
+                <h2>Personal Information</h2>
+
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="title">Professional Title</label>
+                <input type="text" id="title" name="title"
+                    placeholder="e.g. Student, Web Developer">
+
+                <label for="about">About Me</label>
+                <textarea id="about" name="about" rows="5"
+                    placeholder="Write a little about yourself..."></textarea>
+
+                <label for="profileImage">Profile Photo</label>
+                <input type="file" id="profileImage" accept="image/*">
+                <div id="photoPreview"></div>
+            </section>
+
+            <section class="form-section">
+                <h2>Contact Information</h2>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email">
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location">
+            </section>
+
+            <section class="form-section">
+                <h2>Education</h2>
+
+                <div id="educationFields">
+                    <div class="repeatable-item">
+                        <input type="text" name="institution"
+                            placeholder="Institution name">
+                        <input type="text" name="qualification"
+                            placeholder="Degree or qualification">
+                        <input type="text" name="year"
+                            placeholder="Year">
+                    </div>
+                </div>
+
+                <button type="button" class="secondary-button"
+                    id="addEducation">+ Add Education</button>
+            </section>
+
+            <section class="form-section">
+                <h2>Skills</h2>
+                <div id="skillFields">
+                    <input type="text" name="skill"
+                        placeholder="Enter a skill">
+                </div>
+                <button type="button" class="secondary-button"
+                    id="addSkill">+ Add Skill</button>
+            </section>
+
+            <section class="form-section">
+                <h2>Achievements</h2>
+                <div id="achievementFields">
+                    <input type="text" name="achievement"
+                        placeholder="Enter an achievement">
+                </div>
+                <button type="button" class="secondary-button"
+                    id="addAchievement">+ Add Achievement</button>
+            </section>
+
+            <section class="form-section">
+                <h2>Hobbies & Interests</h2>
+                <div id="hobbyFields">
+                    <input type="text" name="hobby"
+                        placeholder="Enter a hobby">
+                </div>
+                <button type="button" class="secondary-button"
+                    id="addHobby">+ Add Hobby</button>
+            </section>
+
+            <section class="form-section">
+                <h2>Projects (Optional)</h2>
+                <div id="projectFields">
+                    <div class="repeatable-item">
+                        <input type="text" name="projectName"
+                            placeholder="Project name">
+                        <textarea name="projectDescription"
+                            placeholder="Project description"></textarea>
+                        <input type="text" name="projectLink"
+                            placeholder="Project link (optional)">
+                    </div>
+                </div>
+                <button type="button" class="secondary-button"
+                    id="addProject">+ Add Project</button>
+            </section>
+
+            <button type="submit" class="main-button">
+                Generate My Portfolio
+            </button>
+
+        </form>
+
+    </main>
+
+    <script src="js/create.js"></script>
+</body>
+</html>
