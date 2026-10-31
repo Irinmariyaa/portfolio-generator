@@ -1,64 +1,162 @@
-# Portfolio Generator
+# Portfolio Website
 
-A web-based portfolio generator built using HTML, CSS, JavaScript, Node.js, Express, and MongoDB.
+A full-stack Portfolio Website that allows users to create and showcase their personal portfolios. Users can enter their personal information, education, skills, achievements, hobbies and projects, and view the information in an elegant portfolio layout.
 
-## About the Project
-
-This project allows users to enter their personal and professional details and generate a portfolio webpage. Users can edit their details and submit feedback.
+The website features an Antique Art Gallery-inspired design with a sophisticated colour palette, responsive layouts and dark mode.
 
 ## Features
 
-- Create a portfolio using a form
-- Display generated portfolio details
-- Edit details without entering everything again
-- Dark mode across the generator pages
-- Feedback form
-- Store feedback in MongoDB
-- Contact form in the personal portfolio page
+- **Home Page:** Welcoming landing page with navigation to portfolio creation and feedback.
+- **Create Portfolio:** Form to enter personal details, contact information, education, skills, achievements, hobbies and projects.
+- **Dynamic Portfolio Generation:** Automatically displays the submitted information in a structured portfolio.
+- **Profile Image:** Allows users to upload and preview a profile image.
+- **Repeatable Fields:** Users can add multiple education entries, skills, achievements, hobbies and projects.
+- **Dark Mode:** Toggle between light and dark themes.
+- **Feedback System:** Users can submit a rating and comments.
+- **MongoDB Integration:** Stores portfolio information and feedback in separate database collections.
+- **Responsive Design:** Provides a user-friendly experience across different screen sizes.
+
+## Pages
+
+1. **Home Page (`index.html`)** – Introduction and navigation.
+2. **Create Portfolio (`create.html`)** – Form for entering portfolio information.
+3. **Generated Portfolio (`portfolio.html`)** – Displays the submitted portfolio.
+4. **Feedback Page (`feedback.html`)** – Collects user ratings and feedback.
 
 ## Technologies Used
 
-- HTML
-- CSS
-- JavaScript
-- Node.js
-- Express.js
-- MongoDB
+| Technology | Purpose |
+|---|---|
+| HTML5 | Website structure |
+| CSS3 | Styling and responsive design |
+| JavaScript | Dynamic functionality and interactions |
+| Node.js | Backend runtime |
+| Express.js | Server and API development |
+| MongoDB Atlas | Cloud database |
+| Mongoose | Database modelling and interaction |
+| Multer | File-upload dependency |
 
-## Project Files
+## Project Structure
 
-- `create.html` — Portfolio creation form
-- `portfolio.html` — Generated portfolio page
-- `feedback.html` — Feedback form
-- `index.html` — Personal portfolio page
-- `style.css` — Styling
-- `script.js` — Client-side JavaScript
-- `server.js` — Node.js server and API routes
+```text
+portfolio/
+│
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   ├── js/
+│   │   ├── create.js
+│   │   ├── portfolio.js
+│   │   └── feedback.js
+│   │
+│   ├── uploads/
+│   ├── index.html
+│   ├── create.html
+│   ├── portfolio.html
+│   └── feedback.html
+│
+├── models/
+│   ├── Portfolio.js
+│   └── Feedback.js
+│
+├── server.js
+├── package.json
+├── package-lock.json
+├── .env
+└── .gitignore
+```
 
-## How to Run Locally
+## Installation and Setup
 
-1. Install Node.js.
-2. Clone or download this repository.
-3. Open the project folder in a terminal.
-4. Install dependencies:
+### 1. Clone the Repository
 
-   ```bash
-   npm install
-   ```
+```bash
+git clone https://github.com/Irinmariyaa/portfolio-generator.git
+```
 
-5. Create a `.env` file with your MongoDB connection settings. Never upload this file to GitHub.
-6. Start the server using the command configured in `package.json`, for example:
+### 2. Navigate to the Project Folder
 
-   ```bash
-   node server.js
-   ```
+```bash
+cd portfolio-generator
+```
 
-7. Open `http://localhost:3000` in your browser.
+### 3. Install Dependencies
 
-## Security Note
+```bash
+npm install
+```
 
-Keep database credentials and other secrets in your local `.env` file. Do not commit secrets to GitHub.
+### 4. Configure Environment Variables
 
-## Author
+Create a `.env` file in the root project folder and add your MongoDB Atlas connection string:
 
-Irin Mariya
+```env
+MONGO_URI=your_mongodb_connection_string
+```
+
+Replace the placeholder with your own MongoDB connection string.
+
+### 5. Start the Server
+
+```bash
+npm run dev
+```
+
+Alternatively:
+
+```bash
+node server.js
+```
+
+### 6. Open the Website
+
+Visit:
+
+```text
+http://localhost:3000
+```
+
+## Database Collections
+
+The application uses MongoDB Atlas to store information.
+
+- **portfolios:** Stores users' portfolio details.
+- **feedbacks:** Stores submitted ratings and comments.
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/status` | Checks server status |
+| POST | `/api/portfolios` | Saves a new portfolio |
+| GET | `/api/portfolios/:id` | Retrieves a portfolio |
+| POST | `/api/feedback` | Saves user feedback |
+
+## Design
+
+The website follows an Antique Art Gallery-inspired visual theme, featuring:
+
+- Porcelain ivory backgrounds
+- Muted blue-green and eucalyptus accents
+- Antique bronze details
+- Deep teal typography
+- Elegant serif headings
+- Subtle borders and decorative elements
+- Light and dark viewing modes
+
+## Security
+
+- MongoDB connection details are stored in environment variables.
+- `.env` and `node_modules` are excluded using `.gitignore`.
+- Database credentials should never be uploaded to GitHub.
+
+## Project Purpose
+
+This project was developed as part of a first-semester web development mini-project to demonstrate the practical application of frontend development, backend programming, database integration and full-stack web development.
+
+---
+
+**Developed by:** Irin Mariya Santhosh
+
+**Project:** Portfolio Website
